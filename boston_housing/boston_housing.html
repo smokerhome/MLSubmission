@@ -11806,7 +11806,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11846,6 +11846,16 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/local/lib/python2.7/site-packages/sklearn/learning_curve.py:23: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
+  DeprecationWarning)
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -11880,7 +11890,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
@@ -11995,7 +12005,7 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;r2_score&#39;</span>
@@ -12122,7 +12132,7 @@ Standard deviation of prices: $165,171.13
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;train_test_split&#39;</span>
@@ -13270,6 +13280,7 @@ zMysY/wP9F+RPvwwktwAAAAASUVORK5CYII=
 <ul>
 <li>For the graph max depth=3. The trainning curve is decresing when traning points are added, but at some point(between 300 and 350), it starts rising a little bit</li>
 <li>For testing curve, it starts rising when training points is above 50, and its rate slows down and converge with training curve.</li>
+<li>Adding more training points will not benefit the model for this case, since the two lines are already closely converged  </li>
 </ul>
 
 </div>
@@ -13877,7 +13888,7 @@ uCboAURN8QAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39;, and &#39;GridSearchCV&#39;</span>
@@ -13951,7 +13962,7 @@ uCboAURN8QAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Fit the training data to the model using grid search</span>
@@ -14039,7 +14050,7 @@ uCboAURN8QAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Produce a matrix for client data</span>
@@ -14047,26 +14058,12 @@ uCboAURN8QAAAABJRU5ErkJggg==
                <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span> <span class="c1"># Client 2</span>
                <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]</span>  <span class="c1"># Client 3</span>
 
-<span class="c1">#print data[data[&#39;RM&#39;] == 8]</span>
+
 <span class="c1"># Show predictions</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">price</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">client_data</span><span class="p">)):</span>
     <span class="k">print</span> <span class="s2">&quot;Predicted selling price for Client {}&#39;s home: ${:,.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">price</span><span class="p">)</span>
-<span class="c1">#print features.describe()</span>
-<span class="k">print</span> <span class="n">reg</span><span class="o">.</span><span class="n">feature_importances_</span>
-<span class="k">print</span> <span class="n">reg</span><span class="o">.</span><span class="n">n_classes_</span>
-<span class="k">print</span> <span class="n">reg</span><span class="o">.</span><span class="n">classes_</span>
-<span class="k">print</span> <span class="n">reg</span><span class="o">.</span><span class="n">n_features_</span>
-<span class="k">print</span> <span class="s1">&#39;============================================&#39;</span>
-<span class="k">print</span> <span class="s1">&#39;Samples for client 1&#39;</span>
-<span class="k">print</span> <span class="n">data</span><span class="p">[((</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LSTAT&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">17</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LSTAT&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RM&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RM&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">))]</span>
-<span class="k">print</span> <span class="s1">&#39;============================================&#39;</span>
-<span class="k">print</span> <span class="s1">&#39;Samples for client 2&#39;</span>
-<span class="k">print</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LSTAT&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">32</span><span class="p">)</span> <span class="o">&amp;</span>  <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RM&#39;</span><span class="p">]</span> <span class="o">&gt;=</span><span class="mi">4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RM&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">))]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;LSTAT&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="k">print</span> <span class="s1">&#39;============================================&#39;</span>
-<span class="k">print</span> <span class="s1">&#39;Samples for client 3&#39;</span>
-<span class="k">print</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LSTAT&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LSTAT&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;RM&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span> <span class="s1">&#39;============================================&#39;</span>
-<span class="c1"># print data[((data[&#39;LSTAT&#39;] &gt;= 17) &amp; (data[&#39;LSTAT&#39;] &lt; 18)) &amp; ((data[&#39;RM&#39;] &gt;= 5) &amp; (data[&#39;RM&#39;] &lt; 6))]</span>
+<span class="k">print</span> <span class="n">features</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;mean price is:  ${:,.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -14084,44 +14081,16 @@ uCboAURN8QAAAABJRU5ErkJggg==
 <pre>Predicted selling price for Client 1&#39;s home: $403,025.00
 Predicted selling price for Client 2&#39;s home: $237,478.72
 Predicted selling price for Client 3&#39;s home: $931,636.36
-[ 0.31359942  0.65387435  0.03252623]
-1
-None
-3
-============================================
-Samples for client 1
-        RM  LSTAT  PTRATIO      MEDV
-122  5.961  17.93     19.1  430500.0
-124  5.879  17.58     19.1  394800.0
-127  5.693  17.19     21.2  340200.0
-134  5.757  17.31     21.2  327600.0
-203  5.960  17.27     18.6  455700.0
-211  5.951  17.92     16.4  451500.0
-373  5.713  17.11     20.2  317100.0
-407  5.565  17.16     20.2  245700.0
-449  5.952  17.15     20.2  399000.0
-478  5.670  17.60     19.2  485100.0
-============================================
-Samples for client 2
-        RM  LSTAT  PTRATIO      MEDV
-395  4.628  34.37     20.2  375900.0
-356  4.906  34.77     20.2  289800.0
-397  4.519  36.98     20.2  147000.0
-357  4.138  37.97     20.2  289800.0
-============================================
-Samples for client 3
-        RM  LSTAT  PTRATIO       MEDV
-245  8.259   3.54     19.1   898800.0
-225  8.247   3.95     17.4  1014300.0
-218  8.040   3.13     17.4   789600.0
-197  7.853   3.81     14.7  1018500.0
-270  7.820   3.76     14.9   953400.0
-98   7.820   3.57     18.0   919800.0
-220  7.686   3.92     17.4   980700.0
-272  7.645   3.01     14.9   966000.0
-196  7.610   3.11     14.7   888300.0
-258  7.470   3.16     13.0   913500.0
-============================================
+               RM       LSTAT     PTRATIO
+count  489.000000  489.000000  489.000000
+mean     6.240288   12.939632   18.516564
+std      0.643650    7.081990    2.111268
+min      3.561000    1.980000   12.600000
+25%      5.880000    7.370000   17.400000
+50%      6.185000   11.690000   19.100000
+75%      6.575000   17.120000   20.200000
+max      8.398000   37.970000   22.000000
+mean price is:  $454,342.94
 </pre>
 </div>
 </div>
@@ -14138,15 +14107,15 @@ Samples for client 3
 <p>**Answer:</p>
 <ul>
 <li>Predicted selling price for Client 1's home: <code>$403,025.00</code><ul>
-<li>From the samples for client 1, this price is reasonable.</li>
+<li>For 5 rooms and 17% poverty level, I am expecting the price should be below the population average</li>
 </ul>
 </li>
 <li>Predicted selling price for Client 2's home: <code>$237,478.72</code>. <ul>
-<li>This price is bit underpriced, Checking the samples for client 2(the index are <code>'357'</code>, <code>'356'</code>and <code>'395'</code>. Their values of <code>'RM'</code> are both 4, and value of <code>'LSTAT'</code>are both worse than client 2, but the prices are higher than the predicted price.</li>
+<li>For 4 rooms and 32% poverty level, I am expecting the price should be below the population average</li>
 </ul>
 </li>
 <li>Predicted selling price for Client 3's home: <code>$931,636.36</code><ul>
-<li>From the samples for client 3, this price is reasonable.</li>
+<li>For 8 rooms and 3% poverty level , I am expecting the price should be above the population average</li>
 </ul>
 </li>
 </ul>
