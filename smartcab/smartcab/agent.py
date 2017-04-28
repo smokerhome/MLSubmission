@@ -3,7 +3,7 @@ import math
 from environment import Agent, Environment
 from planner import RoutePlanner
 from simulator import Simulator
-
+import numpy as np
 class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
         This is the object you will be modifying. """ 
@@ -23,7 +23,7 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         # Set any additional class parameters as needed
-
+        self.trial_counter = 0
 
     def reset(self, destination=None, testing=False):
         """ The reset function is called at the beginning of each trial.
@@ -37,7 +37,11 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         # Update epsilon using a decay function of your choice
-        self.epsilon = self.epsilon - 0.05
+        self.trial_counter =  self.trial_counter + 1
+        # self.epsilon = self.epsilon - 0.05
+        # self.epsilon = 1/ self.trial_counter * self.trial_counter
+        # self.epsilon = np.cos(self.alpha*self.trial_counter)
+        self.epsilon = np.exp(-0.01 * self.trial_counter)
         # Update additional class parameters as needed
         # If 'testing' is True, set epsilon and alpha to 0
         if testing :
@@ -59,7 +63,7 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         # Set 'state' as a tuple of relevant data for the agent        
-        state = (waypoint,inputs[])
+        state = (waypoint,inputs['light'], inputs['left'], inputs['right'], inputs['oncoming'])
 
         return state
 
@@ -187,14 +191,14 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env, update_delay= 0.01, log_metrics=True, display=False)
+    sim = Simulator(env, update_delay= 0.01, log_metrics=True, display=False, optimized = True)
     
     ##############
     # Run the simulator
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=10)
+    sim.run(n_test=10, tolerance = 0.001)
 
 
 if __name__ == '__main__':
